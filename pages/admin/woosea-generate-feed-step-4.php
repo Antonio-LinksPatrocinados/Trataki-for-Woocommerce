@@ -61,6 +61,22 @@ if (array_key_exists('project_hash', $_GET)){
 				<?php
 				//if(isset($project['rules'])){
 					print "<tbody class=\"woo-product-feed-pro-body\">";
+					if( !isset($project['rules']) ){
+						$project['rules']['1624645146581'] = array(
+							'attribute' => 'categories',
+							'condition' => 'empty',
+							'criteria' => 'Accessories',
+							'rowCount' => '1624645146581',
+							'than' => 'exclude',
+						);
+						$project['rules']['1624645148824'] = array(
+							'attribute' => 'stock_status',
+							'condition' => '=',
+							'criteria' => 'out-of-stock',
+							'rowCount' => '1624645148824',
+							'than' => 'exclude',
+						);
+					}
 					if(isset($project['rules'])){
 						foreach ($project['rules'] as $rule_key => $rule_array){
 					
