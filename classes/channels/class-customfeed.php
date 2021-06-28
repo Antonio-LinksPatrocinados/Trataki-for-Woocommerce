@@ -164,6 +164,24 @@ class WooSEA_customfeed {
 					"feed_name" => "loyalty_points",
 					"format" => "optional",
 				),
+				"Virtual ?" => array(
+					"name" => "virtual",
+					"feed_name" => "virtual",
+					"format" => "required",
+					"woo_suggest" => "custom_attributes__virtual",
+				),
+				"Download" => array(
+					"name" => "download",
+					"feed_name" => "download",
+					"format" => "required",
+					"woo_suggest" => "custom_attributes__downloadable",
+				),
+				"Download Files" => array(
+					"name" => "download_files",
+					"feed_name" => "download_files",
+					"format" => "required",
+					"woo_suggest" => "custom_attributes__downloadable_files",
+				),
 			),
 			"Product category" => array(
 				"Google product category" => array(
