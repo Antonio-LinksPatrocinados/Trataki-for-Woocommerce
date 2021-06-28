@@ -28,7 +28,13 @@ class WooSEA_customfeed {
 					"format" => "required",
 					"woo_suggest" => "description",
             	),
-				"Product URL" => array(
+            	"Product Short Description" => array(
+					"name" => "short_description",
+					"feed_name" => "short_description",
+					"format" => "required",
+					"woo_suggest" => "short_description",
+            	),
+		"Product URL" => array(
 					"name" => "link",
 					"feed_name" => "link",
 					"format" => "required",
