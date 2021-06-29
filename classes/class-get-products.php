@@ -1693,6 +1693,29 @@ class WooSEA_Get_Products {
 
 							//$product->addChild( 'product_type', $produto->get_type() );
 							
+							if ( $produto->is_downloadable('Yes') ) {
+								
+								$ficheiros = $produto->get_files();
+								
+								
+								$file_name_str = '';
+								
+								if ($ficheiros) {
+									foreach ($ficheiros as $ficheiro) {
+										$file_name_str .= $ficheiro['name'].',';
+									}
+									
+									$product->addChild('downloadable_files_names',$file_name_str);
+									
+									$file_url_str = '';
+									
+									foreach ($ficheiros as $ficheiro) {
+										$file_url_str .= $ficheiro['file'].',';
+									}
+									
+									$product->addChild('downloadable_files_url',$file_url_str);
+								}
+							}
 							
 							if ($produto->is_type( 'variable' )) {
 								
