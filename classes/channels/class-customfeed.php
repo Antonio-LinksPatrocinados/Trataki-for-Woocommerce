@@ -188,12 +188,6 @@ class WooSEA_customfeed {
 					"format" => "required",
 					"woo_suggest" => "custom_attributes__downloadable",
 				),
-				"Download Files" => array(
-					"name" => "download_files",
-					"feed_name" => "download_files",
-					"format" => "required",
-					"woo_suggest" => "custom_attributes__downloadable_files",
-				),
 			),
 			"Product category" => array(
 				"Google product category" => array(
@@ -537,12 +531,13 @@ class WooSEA_customfeed {
 				),
 			),
 			"Tax" => array(
-				"Tax" => array(
-					"name" => "tax",
-					"feed_name" => "tax",
-					"format" => "optional",
+				"Tax Status" => array(
+					"name" => "tax_status",
+					"feed_name" => "tax_status",
+					"format" => "required",
+					"woo_suggest" => "tax_status",
 				),
-				"Tax category" => array(
+				"Tax Class" => array(
 					"name" => "tax_category",
 					"feed_name" => "tax_category",
 					"format" => "required",
