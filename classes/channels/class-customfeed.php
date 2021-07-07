@@ -46,6 +46,12 @@ class WooSEA_customfeed {
 					"format" => "required",
 					"woo_suggest" => "image",
 				),
+            	"Gallery Images" => array(
+					"name" => "gallery_links",
+					"feed_name" => "gallery_links",
+					"format" => "required",
+					"woo_suggest" => "all_gallery_images",
+				),
 				"Additional image URL" => array(
 					"name" => "additional_image_link",
 					"feed_name" => "additional_image_link",
