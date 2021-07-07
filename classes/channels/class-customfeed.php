@@ -176,12 +176,6 @@ class WooSEA_customfeed {
 					"format" => "required",
 					"woo_suggest" => "custom_attributes__downloadable",
 				),
-				"Download Files" => array(
-					"name" => "download_files",
-					"feed_name" => "download_files",
-					"format" => "required",
-					"woo_suggest" => "custom_attributes__downloadable_files",
-				),
 			),
 			"Product category" => array(
 				"Google product category" => array(
