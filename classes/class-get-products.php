@@ -1657,7 +1657,8 @@ class WooSEA_Get_Products {
 							}
 						}
 					}	
-
+					$taxes_enabled = get_option('woocommerce_calc_taxes'); // Antonio
+					
 					foreach ($products as $key => $value){
 	
 						if ((is_array ( $value )) and (!empty( $value ))) {
@@ -1695,7 +1696,7 @@ class WooSEA_Get_Products {
 							
 							if ( $produto->is_downloadable('Yes') ) {
 								
-								$ficheiros = $produto->get_files();
+								$ficheiros = $produto->get_downloads();
 								
 								
 								$file_name_str = '';
@@ -1744,11 +1745,63 @@ class WooSEA_Get_Products {
 												}
 												
 											}
-											else { $variavel_individual->addChild($chave,$valor); }
+											else { 
+												$variavel_individual->addChild($chave,$valor);
+											}
 											
 										}
 									}
+										
+										$teste = new WC_Product_Variation($variacao['variation_id']);
+										
+										$taxa_classe = $teste->get_tax_class();
+										
+										$valor_taxa = WC_Tax::get_rates($taxa_classe);
+										
+										if ($taxes_enabled == 'yes' && $taxa_classe == '') {
+											$taxa_classe = 'standard';
+										}
+										
+										
+										$valor_taxa = '';
+										foreach ( $taxa_array as $taxa ) {
+											
+											$valor_taxa = $taxa['rate'];
+											
+										}
+										
+										$taxa_status = $teste->get_tax_status();
+										
+										$variavel_individual->addChild('classe_taxa',$taxa_classe);
+										$variavel_individual->addChild('status_taxa',$taxa_status);
+										$variavel_individual->addChild('valor_taxa',$valor_taxa);
 								}
+							}
+							
+							else {
+								
+								
+								
+								$taxa_classe = $produto->get_tax_class();
+								
+								$taxa_array = WC_Tax::get_rates($taxa_classe);
+								
+								if ($taxes_enabled == 'yes' && $taxa_classe == '') {
+									$taxa_classe = 'standard';
+								}
+								$valor_taxa = '';
+								foreach ( $taxa_array as $taxa ) {
+									
+									$valor_taxa = $taxa['rate'];
+									
+								}
+								
+								
+								$taxa_status = $produto->get_tax_status();
+								
+								$product->addChild('classe_taxa',$taxa_classe);
+								$product->addChild('status_taxa',$taxa_status );
+								$product->addChild('valor_taxa',$valor_taxa);
 							}
 							
 							/* Antonio ↑ */
@@ -1928,7 +1981,7 @@ class WooSEA_Get_Products {
 							}
 						}
 					}
-
+					
 					if(is_object($xml)){
 						$xml->asXML($file);
 					}
@@ -4574,6 +4627,9 @@ class WooSEA_Get_Products {
 	 * Execute category taxonomy mappings
 	 */
         private function woocommerce_sea_mappings( $project_mappings, $product_data ){
+		
+		PC::debug($project_mappings,'mappings');
+
 		$original_cat = $product_data['categories'];
 		$original_cat = preg_replace('/&amp;/','&',$original_cat);
 		$original_cat = preg_replace('/&gt;/','>',$original_cat);

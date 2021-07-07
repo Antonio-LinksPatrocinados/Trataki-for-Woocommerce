@@ -128,18 +128,6 @@ class WooSEA_customfeed {
 					"format" => "required",
 					"woo_suggest" => "sale_price",
 				),
-				"Sale price" => array(
-					"name" => "sale_price_start_date",
-					"feed_name" => "sale_price_start_date",
-					"format" => "required",
-					"woo_suggest" => "sale_price_start_date",
-				),
-				"Sale price" => array(
-					"name" => "sale_price_end_date",
-					"feed_name" => "sale_price_end_date",
-					"format" => "required",
-					"woo_suggest" => "sale_price_end_date",
-				),
 				"Sale price effective date" => array(
 					"name" => "sale_price_effective_date",
 					"feed_name" => "sale_price_effective_date",
@@ -187,6 +175,12 @@ class WooSEA_customfeed {
 					"feed_name" => "download",
 					"format" => "required",
 					"woo_suggest" => "custom_attributes__downloadable",
+				),
+				"Download Files" => array(
+					"name" => "download_files",
+					"feed_name" => "download_files",
+					"format" => "required",
+					"woo_suggest" => "custom_attributes__downloadable_files",
 				),
 			),
 			"Product category" => array(
@@ -531,13 +525,12 @@ class WooSEA_customfeed {
 				),
 			),
 			"Tax" => array(
-				"Tax Status" => array(
-					"name" => "tax_status",
-					"feed_name" => "tax_status",
-					"format" => "required",
-					"woo_suggest" => "tax_status",
+				"Tax" => array(
+					"name" => "tax",
+					"feed_name" => "tax",
+					"format" => "optional",
 				),
-				"Tax Class" => array(
+				"Tax category" => array(
 					"name" => "tax_category",
 					"feed_name" => "tax_category",
 					"format" => "required",
