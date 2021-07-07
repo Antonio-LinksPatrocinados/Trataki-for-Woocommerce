@@ -134,6 +134,18 @@ class WooSEA_customfeed {
 					"format" => "optional",
 					"woo_suggest" => "sale_price_effective_date",
 				),
+				"Sale Price Start Date" => array(
+					"name" => "sale_price_start_date",
+					"feed_name" => "sale_price_start_date",
+					"format" => "required",
+					"woo_suggest" => "sale_price_start_date",
+				),
+				"Sale Price End Date" => array(
+					"name" => "sale_price_end_date",
+					"feed_name" => "sale_price_end_date",
+					"format" => "required",
+					"woo_suggest" => "sale_price_end_date",
+				),
 				"Unit pricing measure" => array(
 					"name" => "unit_pricing_measure",
 					"feed_name" => "unit_pricing_measure",
