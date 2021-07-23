@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Trataki for WooCommerce
- * Version:     0.1.12
+ * Version:     0.1.13
  * Plugin URI:  https://www.trataki.com
  * Description: Configure and export your WooCommerce products to Trataki marketpalce.
  * Author:      Trataki
